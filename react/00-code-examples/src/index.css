@@ -1,0 +1,60 @@
+body {
+  background-color: rgb(19, 18, 18);
+  color: aliceblue;
+
+  text-align: center;
+
+  margin-top: 32px;
+}
+
+#root {
+  margin:0 auto;
+}
+
+p{  
+  font: 18px;
+
+  margin: 0;
+}
+
+button {
+  padding: 8px 16px;
+
+  border-radius: 8px;
+
+  background-color: rebeccapurple;
+
+  font-size: 1.2rem;
+
+  color: aliceblue;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition: transform .4s;
+}
+
+input {
+  padding: 8px 16px;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  font-size: 1.2rem;
+}
+
+button:hover {
+  transform: scale(1.05)
+}
+
+div {  
+  max-width: 800px;
+
+  font-size: 32px;
+
+  padding: 32px;
+
+  margin: 8px;
+}
