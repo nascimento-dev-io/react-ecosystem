@@ -2,18 +2,18 @@
 
 Typescript é um superset do JavaScript, com ele você adiciona tipagem estática ao JS.
 
-O Copilador tsc realizar a checagem de tipos em runtime gera código Javascript que é o que o brownser reconhece.
+O copilador tsc realizar a checagem de tipos em runtime gera código Javascript que é o que o browser reconhece.
 
 ### Vantagens
 
 - Evita resultados inesperados.
 - Checagem de tipos no desenvolvimento evitando erros.
-- Deixa a IDE/Editor poderosa ajudando nas tipagem/metodos/prorpiedades.
+- Deixa a IDE/Editor poderosa ajudando nas tipagem/metodos/propriedades.
 
 ### Desvantagens
 
 - Necessita ser compilado.
-- Apredizado inicial dos tips e boas práticas.
+- Aprendizado inicial dos tips e boas práticas.
 
 ### Mitos e Verdades
 
@@ -21,7 +21,7 @@ O Copilador tsc realizar a checagem de tipos em runtime gera código Javascript 
 - Adoção pode ser feita de forma gradual, não precisa reescrever todo o código numa migração.
 - A adoção do typescript não isenta o uso de testes, use em conjunto.
 - É fundamentado em OO porém funciona em qualquer paradigma.
-- Não é muito verboso, não precisa tipar tudo, existe a inferência baseado no retorno de uma função ou valor atribuido na inicialização de uma variável.
+- Não é muito verboso, não precisa tipar tudo, existe a inferência baseado no retorno de uma função ou valor atribuídos na inicialização de uma variável.
 - Pode ser utilizado em projetos grandes ou pequenos, ajuda na escalabilidade.
 - Não é a mesma coisa que propTypes, pois gera erros e não apenas warnings referente a tipos passados.
 
@@ -45,6 +45,6 @@ Podemos criar um arquivo TSconfig, podemos usar o comando tsc --init para a cria
 tsc --init
 ```
 
-Nesse arquivo existe inumeras opções que podemos setar para o tsc, como por exemplo pasta de destino do arquivo gerado, target do JS para compatibilidade, entre outros.
+Nesse arquivo existe inúmeras opções que podemos setar para o tsc, como por exemplo pasta de destino do arquivo gerado, target do JS para compatibilidade, entre outros.
 
 Visite https://aka.ms/tsconfig.json mais informações sobre o arquivo de configuração do typescript.

@@ -22,7 +22,7 @@ import UseCustomHookExample from "./examples/hooks/08-useCustomHook";
 
 const root = createRoot(document.querySelector("#root"));
 
-// Use o componente que queira vosualizar o exemplos sendo executado
+// Use o componente que queira visualizar o exemplos sendo executado
 root.render(
   <ContextProvider>
     <UseCustomHookExample />

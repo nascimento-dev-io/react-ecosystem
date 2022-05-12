@@ -137,229 +137,6 @@ No exemplo estamos tratando o caso de **unmount** do componente, a função de r
 
 ---
 
-### useContext - ( Contexto )
-
-Contexto é uma forma de disponibilizar dados entre a árvore de componentes sem precisar passar props manualmente em cada nível.
-
-#### React.createContext
-Cria um objeto Contexto ( context ). Quando o React renderiza um componente que assina este objeto Contexto, este vai ler o valor atual do **Provider**.
-
-```jsx
-...
-const MyContext = React.createContext(defaultValue);
-```
-
-#### Context.Provider
-Cada objeto Contexto ( context ) vem com um componente Provider que permite componentes consumidores a assinarem mudanças no contexto.
-
-```jsx
-...
-<MyContext.Provider value={/* algum valor */}/>
-```
-O componente Provider aceita uma prop **value** que possui os dados para ser consumido por componentes que são descendentes deste Provider.
-
-Todos consumidores que são descendentes de um Provider serão renderizados novamente sempre que a prop value do Provider for alterada.
-
-#### useContext
-
-O **useContext** permite acesso a dados disponibilizados em um determinado contexto criado e inserido na árvore de componentes.
-
-```jsx
-const value = useContext(MyContext);
-```
-
-Vamos a um exemplo completo:
-
-```jsx
-import React, { useState, createContext } from "react";
-
-// Criação do contexto
-export const myContext = createContext();
-
-const styles = {
-  dark: {
-    backgroundColor: "#333",
-    color: "#f5f5f5",
-  },
-  light: {
-    backgroundColor: "#f5f5f5",
-    color: "#333",
-  },
-};
-
-const user = {
-  name: "Jorge",
-};
-
-// Função que retorna o Provider.
-export const ContextProvider = ({ children }) => {
-  const { dark, light } = styles;
-  const [theme, setTheme] = useState(light);
-
-  const toggleTheme = () => {
-    setTheme((oldTheme) => (oldTheme === light ? dark : light));
-  };
-
-  return (
-    // Componente Provider com dados/funções na prop value.
-    <myContext.Provider value={{ user, toggleTheme, theme }}>
-      {children}
-    </myContext.Provider>
-  );
-};
-
-```
-
-Apenas para finalidade de exemplo, criamos um contexto com informações variadas **themes** e **user** e disponibilizando para que seja consumido por toda árvore que esteja dentro do _whrapper_ provider.
-
-Abaixo componente que irá consumir esse contexto:
-```jsx
-
-import React, { useState, useEffect, useContext } from "react";
-
-// importe do contexto
-import { myContext } from "./Context-Provider";
-
-const Consumer = () => {
-  // useContext utilizando o contexto como argumento
-  const { toggleTheme, theme } = useContext(myContext);
-
-  return (
-    <ContextProvider>
-    <div style={theme}>
-      <UserInfo />
-      <hr />
-      <Counter />
-      <hr />
-      // Aqui o botão chama a função para alterna o theme
-      <button style={{ padding: "8px 12px" }} onClick={toggleTheme}>
-        {" "}
-        Toggle Theme
-      </button>
-    </div>
-    </ContextProvider>
-  );
-};
-export default Consumer;
-
-// Componentes filhos também tem acesso ao objeto de contexto
-
-// Componente Counter
-const Counter = () => {
-  const [counter, setCounter] = useState(0);
-
-  return (
-    <>
-      <p>{counter}</p>
-      <button onClick={() => setCounter(counter + 1)}>+</button> |{" "}
-      <button onClick={() => setCounter(counter - 1)}>-</button>
-    </>
-  );
-};
-
-// Componente UserInfo
-const UserInfo = () => {
-  const { user } = useContext(myContext);
-  return (
-    <>
-      <strong>User: {user.name}</strong>
-    </>
-  );
-};
-```
-No Componente **Consumer** assim como em seus filhos é possível acessar os dados/funções disponibilizadas pelo contexto criado, ainda sendo possível desestruturar o objeto retornado obtendo apenas as informações necessária para cada componente.
-
----
-
-> Documentação Oficial: [Context](https://pt-br.reactjs.org/docs/context.html) | [useContext](https://pt-br.reactjs.org/docs/hooks-reference.html#usecontext)
-
----
-
-### useReducer
-
-O Reducer é uma alternativa ao **useState**. useReducer é geralmente preferível em relação ao useState quando se tem uma lógica de estado complexa que envolve múltiplos sub-valores, ou quando o próximo estado depende do estado anterior. 
-
-Sintaxe:
-```jsx
-  const [state, dispatch] = useReducer(reducer, initialArg, init);
-```
-
-**useReducer** retorna um array com 2 posições, são elas:
-- **state** é o estado a ser manipulado.
-- **dispatch** função que é chamada com parâmetros que aciona a **reducer**.
-
-Recebe os seguintes argumentos:
-- **reducer** função reducer do tipo (state, action) => newState e retorna o estado atual.
-- - **state** estado atual.
-- - **action** geralmente um objeto passado na chamada da função dispatch.
-- **initialArgs** valor inicial do state.
-- **init** é um argumento opcional, uma função que retorna o state inicial.
-
-Vamos a um exemplo substituindo o **useState** do componente Counter e inserindo um estado de clique que adiciona a quantidade de cliques ( independente se incrementar ou decrementar ).
-
-```jsx
-
-// Criando argumentos do useReducer
-const initialValue = {
-  counter: 0,
-  clicks: 0,
-};
-
-function init(initialValue) {
-  return {
-    counter: initialValue.counter,
-    clicks: 0,
-  };
-}
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "plus":
-      return {
-        counter: state.counter + 1,
-        clicks: state.clicks + 1,
-      };
-
-    case "minus":
-      return {
-        counter: state.counter - 1,
-        clicks: state.clicks + 1,
-      };
-
-    default:
-      return state;
-  }
-}
-```
-Essas são os argumentos do hook **useReducer**, na função **reducer** utilizamos a **action** para baseado no tipo realizar um determinado processamento, nesse caso 'plus' para somar e 'minus' para subtrair.
-
-Vamos agora ver o componente Counter e a utilização do hook.
-
-```jsx
-  ...
-  const Counter = () => {
-  // useReducer
-  const [state, dispatch] = useReducer(reducer, initialValue, init);
-
-  return (
-    <>
-      <p>{state.counter}</p>
-      <h4>Cliques: {state.clicks}</h4>
-      <button onClick={() => dispatch({ type: "plus" })}>+</button> |{" "}
-      <button onClick={() => dispatch({ type: "minus" })}>-</button>
-    </>
-  );
-};
-```
-A função **dispatch** é chamando no evento de clique, passando então um objeto com o tipo da operação que será tratado na **reducer**.
-
----
-
-> Documentação Oficial: [useReducer](https://pt-br.reactjs.org/docs/hooks-reference.html#usereducer)
-
----
-
-
 
 ### useCallback
 
@@ -470,6 +247,88 @@ Como demonstra o exemplo, existe uma melhoria de performance com o **useMemo** e
 
 > Documentação Oficial: [useMemo](https://pt-br.reactjs.org/docs/hooks-reference.html#usememo)
 
+---
+
+### useReducer
+
+O Reducer é uma alternativa ao **useState**. useReducer é geralmente preferível em relação ao useState quando se tem uma lógica de estado complexa que envolve múltiplos sub-valores, ou quando o próximo estado depende do estado anterior. 
+
+Sintaxe:
+```jsx
+  const [state, dispatch] = useReducer(reducer, initialArg, init);
+```
+
+**useReducer** retorna um array com 2 posições, são elas:
+- **state** é o estado a ser manipulado.
+- **dispatch** função que é chamada com parâmetros que aciona a **reducer**.
+
+Recebe os seguintes argumentos:
+- **reducer** função reducer do tipo (state, action) => newState e retorna o estado atual.
+- - **state** estado atual.
+- - **action** geralmente um objeto passado na chamada da função dispatch.
+- **initialArgs** valor inicial do state.
+- **init** é um argumento opcional, uma função que retorna o state inicial.
+
+Vamos a um exemplo substituindo o **useState** do componente Counter e inserindo um estado de clique que adiciona a quantidade de cliques ( independente se incrementar ou decrementar ).
+
+```jsx
+
+// Criando argumentos do useReducer
+const initialValue = {
+  counter: 0,
+  clicks: 0,
+};
+
+function init(initialValue) {
+  return {
+    counter: initialValue.counter,
+    clicks: 0,
+  };
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "plus":
+      return {
+        counter: state.counter + 1,
+        clicks: state.clicks + 1,
+      };
+
+    case "minus":
+      return {
+        counter: state.counter - 1,
+        clicks: state.clicks + 1,
+      };
+
+    default:
+      return state;
+  }
+}
+```
+Essas são os argumentos do hook **useReducer**, na função **reducer** utilizamos a **action** para baseado no tipo realizar um determinado processamento, nesse caso 'plus' para somar e 'minus' para subtrair.
+
+Vamos agora ver o componente Counter e a utilização do hook.
+
+```jsx
+  ...
+  const Counter = () => {
+  // useReducer
+  const [state, dispatch] = useReducer(reducer, initialValue, init);
+
+  return (
+    <>
+      <p>{state.counter}</p>
+      <h4>Cliques: {state.clicks}</h4>
+      <button onClick={() => dispatch({ type: "plus" })}>+</button> |{" "}
+      <button onClick={() => dispatch({ type: "minus" })}>-</button>
+    </>
+  );
+};
+```
+A função **dispatch** é chamando no evento de clique, passando então um objeto com o tipo da operação que será tratado na **reducer**.
+
+---
+> Documentação Oficial: [useReducer](https://pt-br.reactjs.org/docs/hooks-reference.html#usereducer)
 ---
 
 ### useRef

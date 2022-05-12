@@ -1,1 +1,0 @@
-[Github](https://github.com/nascimento-dev-io) | [Linkedin](https://www.linkedin.com/in/nascimento-dev-io/)
