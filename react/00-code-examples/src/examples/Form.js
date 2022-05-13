@@ -1,42 +1,58 @@
 import React, { useState } from "react";
 
 export const Form = () => {
-  const [name, setName] = useState("");
-  const [language, setLanguage] = useState("javascript");
-  const [drinks, setDrinks] = useState([]);
-  const [gender, setGender] = useState("masculino");
-  const [image, setImage] = useState({});
-  const [description, setDescription] = useState("");
+  // const [name, setName] = useState("");
+  // const [language, setLanguage] = useState("javascript");
+  // const [drinks, setDrinks] = useState([]);
+  // const [gender, setGender] = useState("masculino");
+  // const [image, setImage] = useState({});
+  // const [description, setDescription] = useState("");
 
-  function onSubmit(event) {
-    event.preventDefault();
-    const data = {
-      name,
-      language,
-      drinks,
-      image,
-      description,
-    };
+  const [formData, setFormData] = useState({});
 
-    console.log(data);
+  function handleInputChange(event) {
+    const { type, name, value } = event.target;
+
+    if (type === "checkbox") {
+      const drinks = formData.drinks || [];
+      const drinkExists = drinks.includes(value);
+
+      if (!drinkExists) {
+        const drinksUpdated = [...drinks, value];
+
+        setFormData({ ...formData, [name]: drinksUpdated });
+        return;
+      }
+
+      const drinksUpdated = drinks.filter((drink) => drink !== value);
+
+      setFormData({ ...formData, [name]: drinksUpdated });
+      return;
+    }
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   }
 
-  function handleFiles({ target }) {
-    setImage({
+  function handleFilesChange({ target }) {
+    setFormData({
+      ...formData,
       file: target.files[0],
     });
   }
 
-  function handleOnChangeFood({ target }) {
-    const CurrentFood = target.value;
-
-    const foodExists = drinks.includes(CurrentFood);
-
-    if (!foodExists) {
-      setDrinks([...drinks, CurrentFood]);
-      return;
-    }
-    setDrinks(drinks.filter((food) => food !== CurrentFood));
+  function onSubmit(event) {
+    event.preventDefault();
+    // const data = {
+    //   name,
+    //   language,
+    //   drinks,
+    //   image,
+    //   description,
+    // };
+    console.log(formData);
   }
 
   return (
@@ -48,17 +64,20 @@ export const Form = () => {
           Name:
           <input
             type="text"
-            onChange={(event) => setName(event.target.value)}
-            value={name}
+            name="name"
+            onChange={handleInputChange}
+            value={formData.name || ""}
           />
         </label>
         {/* Select */}
         <label>
           Language:
           <select
-            value={language}
-            onChange={(e) => setLanguage(e.target.value)}
+            value={formData.language || ""}
+            name="language"
+            onChange={handleInputChange}
           >
+            <option value="">Selecione</option>
             <option value="javascript">Javascript</option>
             <option value="c#">C#</option>
             <option value="python">Python</option>
@@ -70,19 +89,20 @@ export const Form = () => {
           <label>
             <input
               type="checkbox"
+              name="drinks"
               value="cafe"
-              checked={drinks.includes("cafe")}
-              onChange={handleOnChangeFood}
+              checked={formData.drinks && formData.drinks.includes("cafe")}
+              onChange={handleInputChange}
             />
             Café
           </label>
-          {/* --- */}
           <label>
             <input
               type="checkbox"
+              name="drinks"
               value="cha"
-              checked={drinks.includes("cha")}
-              onChange={handleOnChangeFood}
+              checked={formData.drinks && formData.drinks.includes("cha")}
+              onChange={handleInputChange}
             />
             Chá
           </label>
@@ -95,8 +115,8 @@ export const Form = () => {
               type="radio"
               name="gender"
               value="masculino"
-              checked={gender === "masculino"}
-              onChange={({ target }) => setGender(target.value)}
+              checked={formData.gender === "masculino"}
+              onChange={handleInputChange}
             />
             Masculino
           </label>
@@ -105,8 +125,8 @@ export const Form = () => {
               type="radio"
               name="gender"
               value="feminino"
-              checked={gender === "feminino"}
-              onChange={({ target }) => setGender(target.value)}
+              checked={formData.gender === "feminino"}
+              onChange={handleInputChange}
             />
             Feminino
           </label>
@@ -115,15 +135,16 @@ export const Form = () => {
         {/* Input file */}
         <label>
           Photo:
-          <input type="file" onChange={handleFiles} accept="image/*" />
+          <input type="file" onChange={handleFilesChange} accept="image/*" />
         </label>
 
         {/* Textarea */}
         <label>
           Bio:
           <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            name="bio"
+            value={formData.bio}
+            onChange={handleInputChange}
           />
         </label>
         <hr />

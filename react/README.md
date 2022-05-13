@@ -112,7 +112,7 @@ Em React existe o conceito de formulários controlados, onde os input são contr
 
 ### Manipulação de dados em React
 
-Aprender a realizar chamadas a API's é algo crucial, pois a maioria das aplicações irão se comunicar com um backend para mostrar informações, realizar autênticações, validar dados e as formais mais usadas para esse fim são a [Fecth API](https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API) e [Axios](https://axios-http.com/ptbr/docs/intro).
+Aprender a realizar chamadas a API's é algo crucial, pois a maioria das aplicações irão se comunicar com um backend para mostrar informações, realizar autenticações, validar dados e as formais mais usadas para esse fim são a [Fecth API](https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API) e [Axios](https://axios-http.com/ptbr/docs/intro).
 
 - [Axios With Code Example] - ``em desenvolvimento``
 
