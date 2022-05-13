@@ -4,11 +4,12 @@ import "./index.css";
 
 import { ContextProvider } from "./examples/hooks/03.1-Context-Provider";
 
-// import Jsx from "./examples/Jsx";
-// import Componente from "./examples/Componente";
-// import Estados from "./examples/Estados";
-// import Props from "./examples/Props";
-// import Props_x_States from "./examples/Props_x_States";
+// Fundamentals
+import Jsx from "./examples/Jsx";
+import Componente from "./examples/Componente";
+import Estados from "./examples/Estados";
+import Props from "./examples/Props";
+import Props_x_States from "./examples/Props_x_States";
 
 // Hooks
 import UseStateExample from "./examples/hooks/01-useState";
@@ -20,11 +21,14 @@ import UseRefExample from "./examples/hooks/06-useRef";
 import UseImperativeHandleExample from "./examples/hooks/07-useImperativeHandle";
 import UseCustomHookExample from "./examples/hooks/08-useCustomHook";
 
+// Forms
+import { Form } from "./examples/Form";
+
 const root = createRoot(document.querySelector("#root"));
 
 // Use o componente que queira visualizar o exemplos sendo executado
 root.render(
   <ContextProvider>
-    <UseCustomHookExample />
+    <Form />
   </ContextProvider>
 );
