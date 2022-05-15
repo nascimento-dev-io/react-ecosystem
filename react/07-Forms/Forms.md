@@ -1,10 +1,9 @@
-## Formulários em React
+## React - Formulários
 
 Em React formulários são controlados com [estados](./../00-code-examples/src/examples/Estados.js), isso concede um pode maior sobe 
 manipulação de eventos (onChange, onSubmit) e controle sobre seus valores, pois o react se torna a única 'fonte de verdade', form que são manipulados com estados em react são chamados de **(controlled component)**.
 
 *Vamos ao exemplos de formulários controlados*
-
 
 ### Input
 ```jsx
@@ -128,38 +127,59 @@ Quando você precisa manipular múltiplos inputs controlados, você pode adicion
 *Exemplo*
 ```jsx
 function handleInputChange(event) {
-    const { type, name, value } = event.target;
+  const { target } = event;
+  const { type, name, value } = target;
 
-    if (type === "checkbox") {
-      const drinks = formData.drinks || [];
-      const drinkExists = drinks.includes(value);
+  if (type === "checkbox") {
+    const drinks = formData.drinks || [];
 
-      if (!drinkExists) {
-        const drinksUpdated = [...drinks, value];
+    console.log(drinks);
 
-        setFormData({ ...formData, [name]: drinksUpdated });
-        return;
-      }
-
-      const drinksUpdated = drinks.filter((drink) => drink !== value);
+    if (target.checked) {
+      const drinksUpdated = [...drinks, value];
 
       setFormData({ ...formData, [name]: drinksUpdated });
       return;
     }
 
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    const drinksUpdated = drinks.filter((drink) => drink !== value);
+
+    setFormData({ ...formData, [name]: drinksUpdated });
+    return;
   }
+
+  setFormData({
+    ...formData,
+    [name]: value,
+  });
+}
 ```
-Existem várias formas de criar lógica para esse tipo de caso e esse é apenas um exemplo.
+Existem várias formas de criar lógica para esse tipo de caso, tornando-o menos ou mais flexível, esse é apenas um exemplo.
 
 Geralmente se usa lib's para manipulação e validação de formulário em React, tais como [formik](https://formik.org/docs/overview), [react-hooks.form](https://react-hook-form.com/) entre outras.
 
+---
 
 
-https://pt-br.reactjs.org/docs/forms.html
+> Documentação Oficial - [Formulários](https://pt-br.reactjs.org/docs/hooks-intro.html) 
+
+> Veja também: [Aprendendo React - The Roadmap!](https://dev.to/nascimento_/apredendo-react-the-roadmap-5fii) 
+
+> <sub> *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como insentivo no meus estudos de React criando outros posts pra fixação do aprendizado.* </sub>
+
+
+<h4> <em> Me Sigam :) </em> </h4>
+<div 
+style="display: flex; align-items: center;">
+
+  <a href="https://www.linkedin.com/in/nascimento-dev-io/">
+  <img src="https://ik.imagekit.io/Nscmnt/icons/pngwing.com__4__m0IN66sEh.png?ik-sdk-version=javascript-1.4.3&updatedAt=1650463280960">
+  </a>
+  <a href="https://github.com/nascimento-dev-io">
+    <img src="https://ik.imagekit.io/Nscmnt/icons/pngwing.com__5__A7_Madm1Z.png?ik-sdk-version=javascript-1.4.3&updatedAt=1650463360355">
+  </a>
+
+</div>
 
 
 

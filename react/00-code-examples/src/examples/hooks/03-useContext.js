@@ -28,16 +28,24 @@ const Counter = () => {
   const [counter, setCounter] = useState(0);
 
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
       <p>{counter}</p>
-      <button onClick={() => setCounter((prevCounter) => prevCounter + 1)}>
-        +
-      </button>{" "}
-      |{" "}
-      <button onClick={() => setCounter((prevCounter) => prevCounter - 1)}>
-        -
-      </button>
-    </>
+      <div>
+        <button onClick={() => setCounter((prevCounter) => prevCounter + 1)}>
+          +
+        </button>
+        <button onClick={() => setCounter((prevCounter) => prevCounter - 1)}>
+          -
+        </button>
+      </div>
+    </div>
   );
 };
 
@@ -45,13 +53,12 @@ const Counter = () => {
 
 // Componente UserInfo
 const UserInfo = () => {
-  const { user } = useContext(myContext);
+  const { user, theme } = useContext(myContext);
   return (
     <>
-      <strong>User: {user.name}</strong>
+      <strong style={theme}>User: {user.name}</strong>
     </>
   );
 };
 
 // link para explicação:
-

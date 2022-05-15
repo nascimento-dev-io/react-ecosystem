@@ -1,9 +1,21 @@
+#root {
+  width: 100vw;
+  background-color: #2F3D40;
+}
 body {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
   width: 100vw;
 }
 
 h1 {
   text-align: center;
+}
+
+div {
+  padding: 8px;
 }
 
 form {

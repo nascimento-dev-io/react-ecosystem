@@ -9,10 +9,10 @@ const UseImperativeHandleExample = () => {
   }
 
   return (
-    <>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <Form ref={formRef} />
       <button onClick={handleSubmit}>Enviar</button>
-    </>
+    </div>
   );
 };
 
@@ -31,7 +31,7 @@ const Form = forwardRef((props, ref) => {
   );
 
   return (
-    <form>
+    <form style={{ width: "280px", margin: "0 8px" }}>
       <input ref={inputRef} type="text" />
     </form>
   );

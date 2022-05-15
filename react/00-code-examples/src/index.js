@@ -24,11 +24,14 @@ import UseCustomHookExample from "./examples/hooks/08-useCustomHook";
 // Forms
 import { Form } from "./examples/Form";
 
+//Styles
+import { StylesExample } from "./examples/Styles/StylesExample";
+
 const root = createRoot(document.querySelector("#root"));
 
 // Use o componente que queira visualizar o exemplos sendo executado
 root.render(
   <ContextProvider>
-    <Form />
+    <StylesExample />
   </ContextProvider>
 );

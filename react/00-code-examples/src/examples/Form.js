@@ -11,13 +11,15 @@ export const Form = () => {
   const [formData, setFormData] = useState({});
 
   function handleInputChange(event) {
-    const { type, name, value } = event.target;
+    const { target } = event;
+    const { type, name, value } = target;
 
     if (type === "checkbox") {
       const drinks = formData.drinks || [];
-      const drinkExists = drinks.includes(value);
 
-      if (!drinkExists) {
+      console.log(drinks);
+
+      if (target.checked) {
         const drinksUpdated = [...drinks, value];
 
         setFormData({ ...formData, [name]: drinksUpdated });
