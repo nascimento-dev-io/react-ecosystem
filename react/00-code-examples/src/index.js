@@ -27,11 +27,15 @@ import { Form } from "./examples/Form";
 //Styles
 import { StylesExample } from "./examples/Styles/StylesExample";
 
+//axios
+import { Post } from "./examples/Axios/Post";
+import { PostUseAxios } from "./examples/Axios/PostUseAxios";
+
 const root = createRoot(document.querySelector("#root"));
 
 // Use o componente que queira visualizar o exemplos sendo executado
 root.render(
   <ContextProvider>
-    <StylesExample />
+    <PostUseAxios />
   </ContextProvider>
 );
