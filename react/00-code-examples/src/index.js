@@ -28,14 +28,16 @@ import { Form } from "./examples/Form";
 import { StylesExample } from "./examples/Styles/StylesExample";
 
 //axios
-import { Post } from "./examples/Axios/Post";
 import { PostUseAxios } from "./examples/Axios/PostUseAxios";
+
+// Performance
+import { ListItems } from "./examples/Peformance";
 
 const root = createRoot(document.querySelector("#root"));
 
 // Use o componente que queira visualizar o exemplos sendo executado
 root.render(
   <ContextProvider>
-    <PostUseAxios />
+    <ListItems />
   </ContextProvider>
 );
