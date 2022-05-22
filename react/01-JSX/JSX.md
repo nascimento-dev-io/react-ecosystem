@@ -233,7 +233,7 @@ O JSX é uma sintaxe que a príncipio contradiz com o que estamos acostumado com
 
 > [Documentação Oficial - Introduzindo JSX ](https://pt-br.reactjs.org/docs/introducing-jsx.html)
 
->  *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como insentivo no meus estudos de React criando outros posts pra fixação do aprendizado.*
+>  *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como incentivo no meus estudos de React criando outros posts pra fixação do aprendizado.*
 
 
 <h4> <em> Me Sigam :) </em> </h4>

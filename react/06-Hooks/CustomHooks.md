@@ -133,7 +133,7 @@ Então percebemos que uma vez que você aprende a utilizar bem os hooks, eles co
 
 > Veja também: [Aprendendo React - The Roadmap!](https://dev.to/nascimento_/apredendo-react-the-roadmap-5fii) | [Site com Hooks Personalizados](https://usehooks.com/ )
 
-> <sub> *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como insentivo no meus estudos de React criando outros posts pra fixação do aprendizado.* </sub>
+> <sub> *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como incentivo no meus estudos de React criando outros posts pra fixação do aprendizado.* </sub>
 
 
 <h4> <em> Me Sigam :) </em> </h4>

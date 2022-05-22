@@ -96,7 +96,7 @@ O uso de estados em React é o que dita as modificações na interface do usuár
 
 > Veja também: [React - O que é JSX](https://dev.to/nascimento_/react-o-que-e-jsx-3032)
 
-> <sub> *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como insentivo no meus estudos de React criando outros posts pra fixação do aprendizado.* </sub>
+> <sub> *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como incentivo no meus estudos de React criando outros posts pra fixação do aprendizado.* </sub>
 
 
 <h4> <em> Me Sigam :) </em> </h4>

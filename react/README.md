@@ -191,7 +191,7 @@ Você pode continuar aprendendo sobre acessibilidade, estruturas de teste e muit
 
 > Baseado no post - [Learn ReactJS – Complete Roadmap](https://www.freecodecamp.org/news/react-fundamentals-for-beginners/)
 
->  *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como insentivo no meus estudos de React criado outros posts pra fixação do aprendizado.*
+>  *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como incentivo no meus estudos de React criado outros posts pra fixação do aprendizado.*
 
 Me sigam nas redes sociais:
 

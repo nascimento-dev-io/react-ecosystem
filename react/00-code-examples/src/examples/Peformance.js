@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React, { memo, useCallback, useMemo, useState } from "react";
+
+let count = 0;
 
 export const ListItems = () => {
   const [items, setItems] = useState([]);
   const [itemValue, setItemValue] = useState("");
 
-  console.log("Re-rended: ListItems");
-  console.log(items);
+  console.log("RE-RENDER - LIST ITEMS");
 
   function handleAddItem(e) {
     e.preventDefault();
-    setItems([...items, itemValue]);
+    setItems([...items, { id: count++, text: itemValue }]);
   }
 
-  function handleRemoveItem(id) {
-    const filteredItems = items.filter((item) => item.id !== id);
-    setItems(filteredItems);
-  }
+  const handleRemoveItem = useCallback(
+    (id) => setItems((state) => state.filter((item) => item.id !== id)),
+    [setItems]
+  );
+
+  const slowCalc = useMemo(() => {
+    console.log("useMemo");
+    return items.filter((item) => item.text.includes("a")).length;
+  }, [items]);
 
   return (
     <>
@@ -26,20 +32,31 @@ export const ListItems = () => {
         />
         <button type="submit">Add Item</button>
       </form>
-      <ul>{items.length > 0 && items.map((item) => <li>{item}</li>)}</ul>
+      <ul>
+        {items.length > 0 &&
+          items.map((item) => (
+            <Item
+              key={item.id}
+              item={item}
+              handleRemoveItem={handleRemoveItem}
+            />
+          ))}
+      </ul>
+      <p style={{ textAlign: "center" }}>
+        Quantidade item que possui a letra ( a ): {slowCalc}
+      </p>
     </>
   );
 };
 
-// Child's
+// Child
 
-// const Item = ({ item, handleRemoveItem }) => {
-//   console.log("Re-rended: Items");
+const Item = memo(({ item, handleRemoveItem }) => {
+  console.log("RE-RENDER -  ITEMS");
 
-//   return (
-//     <li key={item.id}>
-//       {" "}
-//       {item.text} <button onClick={handleRemoveItem(item.id)}>x</button>
-//     </li>
-//   );
-// };
+  return (
+    <li key={item.id}>
+      {item.text} <button onClick={() => handleRemoveItem(item.id)}>x</button>
+    </li>
+  );
+});

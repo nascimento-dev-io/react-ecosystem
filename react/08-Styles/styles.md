@@ -167,7 +167,7 @@ Geralmente em React usamos outras formas de estilização quando estamos falando
 
 > Veja também : [O que são módulos CSS e por que precisamos deles?](https://css-tricks.com/css-modules-part-1-need/) | [Estilização em React](https://pt-br.reactjs.org/docs/faq-styling.html) | [As 5 melhores libs de UI para React | by Maycon Alves - Medium](https://medium.com/reactbrasil/as-5-melhores-libs-de-ui-para-react-75d9570123eb)
 
-> <sub> *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como insentivo no meus estudos de React criando outros posts pra fixação do aprendizado.* </sub>
+> <sub> *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como incentivo no meus estudos de React criando outros posts pra fixação do aprendizado.* </sub>
 
 
 <h4> <em> Me Sigam :) </em> </h4>
