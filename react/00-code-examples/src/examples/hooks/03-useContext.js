@@ -5,6 +5,7 @@ import { myContext } from "./03.1-Context-Provider";
 const UseContextExample = () => {
   // useContext
   const { toggleTheme, theme } = useContext(myContext);
+  console.log("Parent");
 
   return (
     <div style={theme}>
@@ -26,6 +27,7 @@ export default UseContextExample;
 // Componente Counter
 const Counter = () => {
   const [counter, setCounter] = useState(0);
+  console.log("Counter");
 
   return (
     <div
@@ -54,9 +56,10 @@ const Counter = () => {
 // Componente UserInfo
 const UserInfo = () => {
   const { user, theme } = useContext(myContext);
+
   return (
     <>
-      <strong style={theme}>User: {user.name}</strong>
+      <strong style={theme}>User: {user.name || "Desconhecido"}</strong>
     </>
   );
 };

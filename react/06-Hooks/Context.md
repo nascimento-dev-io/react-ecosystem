@@ -1,6 +1,6 @@
 ### useContext - ( Contexto )
 
-Contexto é uma forma de disponibilizar dados entre a árvore de componentes sem precisar passar props manualmente em cada nível.
+Contexto é uma forma de disponibilizar dados entre a árvore de componentes sem precisar passar props manualmente em cada nível, isso evita o chamado prop drilling que é ter muitos níveis de componentes passando a mesma prop para seu filhos mesmo que ele não a utilize, esse problema é resolvido com criação de contextos.
 
 #### React.createContext
 Cria um objeto Contexto ( context ). Quando o React renderiza um componente que assina este objeto Contexto, este vai ler o valor atual do **Provider**.
@@ -130,8 +130,14 @@ const UserInfo = () => {
 ```
 No Componente **Consumer** assim como em seus filhos é possível acessar os dados/funções disponibilizadas pelo contexto criado, ainda sendo possível desestruturar o objeto retornado obtendo apenas as informações necessária para cada componente.
 
+Isso concede uma legibilidade e ajuda na manutenção do código pois em caso de alterações no código o contexto isola determinadas lógicas que sao consumida por inúmeros componentes.
+
+Obrigado por ler!
+
 ---
 
 > Documentação Oficial: [Context](https://pt-br.reactjs.org/docs/context.html) | [useContext](https://pt-br.reactjs.org/docs/hooks-reference.html#usecontext)
 
 ---
+<h4> <em> Me Sigam :) </em> </h4>
+[Github](https://github.com/nascimento-dev-io) | [Linkedin](https://www.linkedin.com/in/nascimento-dev-io/)

@@ -1,10 +1,10 @@
-## React - o que são custom Hooks
+## React - O que são custom Hooks
 
 É possível criar seus próprios hooks, os Custom Hooks é uma forma de extrair lógica de um componente em funções reutilizáveis.
 
 > Por convenção o nome dado a um custom hook se inicia com a palavra **use**.
 
-O custom hook segue as mesma [regras dos hooks](https://pt-br.reactjs.org/docs/hooks-rules.html) e dentro de um hook customizado usamos outros hooks e é isso que o torna tão poderoso, compartilhar lógica e manipular ciclos de vida de forma totalmente isolado com o hooks ja conhecidos torna o código com uma legibilidade melhor.
+O custom hook segue as mesma [regras dos hooks](https://pt-br.reactjs.org/docs/hooks-rules.html) e dentro de um hook customizado usamos outros hooks e é isso que o torna tão poderoso, compartilhar lógica e manipular ciclos de vida de forma totalmente isolado com o hooks ja conhecidos torna o código mias legível.
 
 *Vamos ao exemplo de um custom hook de fetch.*
 
@@ -123,15 +123,18 @@ const useFetch = (url) => {
 };
 ```
 
-Então percebemos que uma vez que você aprende a utilizar bem os hooks, eles concedem um poder muito grande no desenvolvimento em React, use sua imaginação para criar custom hooks confirme sua necessidade.
+Então percebemos que uma vez que você aprende a utilizar bem os hooks, eles concedem um poder muito grande no desenvolvimento em React, use sua imaginação para criar custom hooks conforme sua necessidade, nesse [Site com Hooks Personalizados](https://usehooks.com/ ) você encontra código de custom hooks para as mais variadas finalidade.
 
 > Geralmente criamos um pasta *hooks* para organização do código.
+
+**Obrigado por ler!**
+
 ---
 
 
 > Documentação Oficial - [Introdução aos Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html) | [API de Referência dos Hooks](https://pt-br.reactjs.org/docs/hooks-reference.html#basic-hooks) | [Custom Hooks](https://usehooks.com/ )
 
-> Veja também: [Aprendendo React - The Roadmap!](https://dev.to/nascimento_/apredendo-react-the-roadmap-5fii) | [Site com Hooks Personalizados](https://usehooks.com/ )
+> Veja também: [Aprendendo React - The Roadmap!](https://dev.to/nascimento_/apredendo-react-the-roadmap-5fii) 
 
 > <sub> *Este post tem como objetivo ajudar quem esta começando no aprendizado de React, além de servir como incentivo no meus estudos de React criando outros posts pra fixação do aprendizado.* </sub>
 

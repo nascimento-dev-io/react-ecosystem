@@ -38,6 +38,6 @@ const root = createRoot(document.querySelector("#root"));
 // Use o componente que queira visualizar o exemplos sendo executado
 root.render(
   <ContextProvider>
-    <ListItems />
+    <UseContextExample />
   </ContextProvider>
 );
