@@ -2,7 +2,7 @@
 
 Typescript é um superset do JavaScript, com ele você adiciona tipagem estática ao JS.
 
-O copilador tsc realizar a checagem de tipos em runtime gera código Javascript que é o que o browser reconhece.
+O compilador tsc realizar a checagem de tipos em runtime gera código Javascript que é o que o browser reconhece.
 
 ### Vantagens
 
@@ -13,7 +13,7 @@ O copilador tsc realizar a checagem de tipos em runtime gera código Javascript 
 ### Desvantagens
 
 - Necessita ser compilado.
-- Aprendizado inicial dos tips e boas práticas.
+- Aprendizado inicial dos tipos e boas práticas.
 
 ### Mitos e Verdades
 

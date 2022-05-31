@@ -1,4 +1,4 @@
-### useContext - ( Contexto )
+### React - O que é Contexto 
 
 Contexto é uma forma de disponibilizar dados entre a árvore de componentes sem precisar passar props manualmente em cada nível, isso evita o chamado prop drilling que é ter muitos níveis de componentes passando a mesma prop para seu filhos mesmo que ele não a utilize, esse problema é resolvido com criação de contextos.
 

@@ -7,7 +7,7 @@ function logDetails(uid: Uid, item: string) {
 
 console.log(logDetails(100, "PS5"));
 
-// Podemos também definir quais exatamentes são as opções aceitas no type alias.
+// Podemos também definir quais exatamente são as opções aceitas no type alias.
 type ConsolePlatform = "PS5" | "Xbox" | "PC";
 
 function renderConsoleType(consolePlatform: ConsolePlatform) {

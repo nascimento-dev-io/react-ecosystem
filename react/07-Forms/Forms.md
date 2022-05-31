@@ -1,7 +1,6 @@
 ## React - Formulários
 
-Em React formulários são controlados com [estados](./../00-code-examples/src/examples/Estados.js), isso concede um pode maior sobe 
-manipulação de eventos (onChange, onSubmit) e controle sobre seus valores, pois o react se torna a única 'fonte de verdade', form que são manipulados com estados em react são chamados de **(controlled component)**.
+Em React formulários podem e normalmente são controlados com [states](./../00-code-examples/src/examples/Estados.js), isso concede um poder maior sobe manipulação de eventos (onChange, onSubmit) e controle sobre seus valores, pois o react se torna a única 'fonte de verdade', form que são manipulados com estados em react são chamados de **( controlled component )**.
 
 *Vamos ao exemplos de formulários controlados*
 
@@ -34,19 +33,19 @@ export const Form = () => {
 };
 ```
 
-- 1 -- Criamos um estado para armazenar e atualizar o **name**.
-- 2 -- Controlamos o **input** setando seu **value** com o estado **name**.
-- 3 -- No **onChange** atualizamos o **value** através da função **setName**.
-- 4 -- No **onSubmit** temos acesso ao estado **name** para manipulação.
+- 1 - Criamos um estado para armazenar e atualizar o **name**.
+- 2 - Controlamos o **input** setando seu **value** com o estado **name**.
+- 3 - No **onChange** atualizamos o **value** através da função **setName**.
+- 4 - No **onSubmit** temos acesso ao estado **name** para manipulação.
 
-Então entendemos que dessa forma temos maior controle sobe o estados dos componentes de formulários, na sua manipulação posteriormente. 
+Então entendemos que dessa forma temos maior controle sobe o estados dos componentes de formulários, e sua manipulação posteriormente podemos ter validações e tratamento desses valores. 
 
 Na sequência vamos ver os principais elementos de formulário e como manipulamos com o react.
 
 
 ### Select
 
-Em React, em vez de usar o atributo selected para definir o valor selecionado, usa-se um atributo value na raiz da tag select. Isso é mais conveniente em um componente controlado, porque você só precisa atualizá-lo em um só lugar.
+Em React, em vez de usar o atributo **selected** para definir o valor selecionado, usa-se um atributo **value** na raiz da tag select. Isso é mais conveniente em um componente controlado, porque você só precisa atualizá-lo em um só lugar.
 
 ```jsx
   <select value={language} onChange={(e) => setLanguage(e.target.value)}>
@@ -64,7 +63,7 @@ Em React, em vez de usar o atributo selected para definir o valor selecionado, u
 
 ### Checkbox
 
-O elemento checkbox pode ter seu estado manipulando em React. para isso utilizando o atributo **checked** setando a ele uma condição que retorne um booleano baseado no estado que pode ser um booleano simples, ou uma condição mais complexa quando existir múltiplas escolhas.
+O elemento checkbox pode ter seu estado manipulando utilizando o atributo **checked** setando a ele uma condição que retorne um booleano baseado no estado que pode ser um booleano simples, ou uma condição mais complexa quando existir múltiplas escolhas.
 
 ```jsx
 <input
@@ -122,7 +121,7 @@ O **Textarea** no react possui um atributo **value** para que seja manipulado, o
 
 ### Manipulando Múltiplos Inputs
 
-Quando você precisa manipular múltiplos inputs controlados, você pode adicionar um atributo *name* a cada elemento e deixar a função manipuladora escolher o que fazer com base no valor de **event.target.name**.
+Quando você precisa manipular múltiplos inputs controlados, você pode adicionar um atributo ***name*** a cada elemento e deixar a função manipuladora escolher o que fazer com base no valor de **event.target.name**.
 
 *Exemplo*
 ```jsx
@@ -132,8 +131,6 @@ function handleInputChange(event) {
 
   if (type === "checkbox") {
     const drinks = formData.drinks || [];
-
-    console.log(drinks);
 
     if (target.checked) {
       const drinksUpdated = [...drinks, value];
@@ -154,9 +151,13 @@ function handleInputChange(event) {
   });
 }
 ```
-Existem várias formas de criar lógica para esse tipo de caso, tornando-o menos ou mais flexível, esse é apenas um exemplo.
+Existem várias formas de criar lógica para esse tipo de caso, tornando-o menos ou mais flexível, esse é apenas um exemplo simplificado.
 
-Geralmente se usa lib's para manipulação e validação de formulário em React, tais como [formik](https://formik.org/docs/overview), [react-hooks.form](https://react-hook-form.com/) entre outras.
+Geralmente usamos lib's para manipulação e validação de formulário em React, tais como [formik](https://formik.org/docs/overview), [react-hooks-form](https://react-hook-form.com/), [Yup](https://github.com/jquense/yup) entre outras.
+
+Bom por hoje é isso, temos então uma introdução a formulários em React para começar a construir nossas aplicações.
+
+**Obrigado por ler.**
 
 ---
 

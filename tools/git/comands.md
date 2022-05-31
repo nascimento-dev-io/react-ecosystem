@@ -1,11 +1,6 @@
 # Git
 O git é um sistema de controle de versão, os sistemas de controle de versão são ferramentas de software que ajudam as equipes de software a gerenciar as alterações ao código-fonte ao longo do tempo.
 
-
-
-Site que ajuda a entender os comando mostrando o fluxo de commit's, branch's, merges de forma visual.
-
-
 ## Principais Comandos do Git
 
 ### Instalação
@@ -185,48 +180,6 @@ $ git branch -m novo-nome
 $ git branch -d <name>
 
 ```
-### Removendo branch e tags remotas
-
----
-
-## Trabalhando de forma remota ( Utilizando Github )
-
-### Clonando e listando repositório remoto
-
-```bash
-# Realizar um clone de um projeto ( repositório) remoto
-$ git clone <url-repo>
-
-# Lista os repositórios remoto e sua(s) url(s)
-$ git remote -v
-
-# mostra informações do repositório remoto específico de forma detalhada
-$ git remote show <remote-name>
-
-```
-
-### Adicionando e removendo  referência do repositório remoto
-
-```bash
-# adiciona um repositório remoto explicitamente
-$ git remote add <shortname> <url>
-
-# remove a referência para o repositório remoto
-$ git remove <remote-name>
-```
-
-### Puxando e Empurrando atualizações
-
-```bash
-# buscar os dados no repo remoto e atualizar automaticamente sua branch local
-$ git pull
-
-# baixa os dados para o seu repositório local - ele não é automaticamente mesclado (merge)
-$ git fetch
-
-# envia as alterações locais para o remote na branch especificada, seu repositório local precisa estar atualizado com as últimas alterações da branch remota
-$ git push <name> <branch>
-```
 
 ### Unindo branches ( merge e rebase )
 
@@ -266,6 +219,45 @@ $ git push origin :<branch-name>
 
 # remove a tag remota
 $ git push origin :<tag-version>
+```
+
+## Trabalhando de forma remota ( Utilizando Github )
+
+### Clonando e listando repositório remoto
+
+```bash
+# Realizar um clone de um projeto ( repositório) remoto
+$ git clone <url-repo>
+
+# Lista os repositórios remoto e sua(s) url(s)
+$ git remote -v
+
+# mostra informações do repositório remoto específico de forma detalhada
+$ git remote show <remote-name>
+
+```
+
+### Adicionando e removendo  referência do repositório remoto
+
+```bash
+# adiciona um repositório remoto explicitamente
+$ git remote add <shortname> <url>
+
+# remove a referência para o repositório remoto
+$ git remove <remote-name>
+```
+
+### Puxando e Empurrando atualizações
+
+```bash
+# buscar os dados no repo remoto e atualizar automaticamente sua branch local
+$ git pull
+
+# baixa os dados para o seu repositório local - ele não é automaticamente mesclado (merge)
+$ git fetch
+
+# envia as alterações locais para o remote na branch especificada, seu repositório local precisa estar atualizado com as últimas alterações da branch remota
+$ git push <name> <branch>
 ```
 
 
