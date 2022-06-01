@@ -23,19 +23,13 @@ npm install --save-dev @babel/core @babel/cli @babel/preset-env
 ```json
 {
   "presets": [
-    [
-      "@babel/preset-env",
-      {
+      ["@babel/preset-env", {
         "targets": {
-          "edge": "17",
-          "firefox": "60",
-          "chrome": "67",
-          "safari": "11.1"
-        },
-        "useBuiltIns": "usage",
-        "corejs": "3.6.5"
-      }
-    ]
+          "browsers": ["last 2 versions"]
+        }
+      }],
+    "@babel/preset-typescript",
+    "@babel/preset-react"
   ]
 }
 ```
@@ -110,15 +104,15 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const App = () => {
-  const name = "Jorge";
+var App = function App() {
+  var name = "Jorge";
   return /*#__PURE__*/_react.default.createElement("p", null, "My name is ", name);
 };
 
 var _default = App;
 exports.default = _default;
 ```
-Então com isso temos um boa noção da funcionalidade do **babel**, para funcionar junto com typescript é necessário instalação e configuração do compilador **tsc** para lidar com checagem de tipos e configurações adicionais, para saber mais leia a documentação do **Babel**
+Então com isso temos um boa noção da funcionalidade do **babel**, para funcionar junto com typescript é necessário instalação e configuração do compilador **tsc** para lidar com checagem de tipos e configurações adicionais em caso de projeto maiores, para saber mais leia a documentação do **Babel**
 
 
 > [Documentação Babel](https://babeljs.io/docs/en/) | 
