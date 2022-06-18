@@ -19,3 +19,6 @@ Abaixo serão deixo os links para cada tecnologia para facilitar o acesso, os ar
 
 ### Tecnologias
 - [React](./react/)
+- [React-Router](./react-router/)
+- [Axios](./axios/)
+- [Typescript](./typescript/)

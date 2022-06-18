@@ -137,19 +137,19 @@ Nesse [video](https://www.loom.com/share/01843367a5e8422092d11335eafc5647)  voc�
 
 É muito importante entender que não devemos usar esses hooks em todos componentes e em qualquer função, pois existe uma comparação que é realizada para seus funcionamento que nem sempre é mais performática que o fluxo normal de renderização.
 
-#### memo
+#### Quando usar o memo ?
 - **Componentes Puro** - são componentes que com as mesmas entradas sempre retorna a mesma saida.
 - **Re-renders excessivos** - componentes que são re-renderizados muitas vezes sem necessidade ( sem alterações em suas props ).
 - **Componentes médios/grandes** - componentes muitos pequenos não afeta a performance da aplicação, em casos de componentes médios para grandes que renderização muita coisa em tela podemos considerar o uso do memo.
 
-#### useMemo
+#### Quando usar o useMemo ?
 - **Cálculos complexos** - use para evitar re-cálculos complexos a cada re-render, em casos de cálculos simples não faz sentido seu uso.
 
-#### useCallback
+#### Quando usar o useCallback ?
 - **Resolver igualdade referencial** - Evitar a função ser recriada a cada re-render, evitando assim componentes childs que use um memo para não renderizar novamente **( useMemo também resolve esse problema )**.
 
 ---
-A partir de agora temos um bom conhecimento de como funciona p fluxo de renderização React e como usar hooks para melhorar o desempenho da sua aplicação.
+A partir de agora temos um bom conhecimento de como funciona o fluxo de renderização React e como usar hooks para melhorar o desempenho da sua aplicação.
 
 Obrigador por ler!
 

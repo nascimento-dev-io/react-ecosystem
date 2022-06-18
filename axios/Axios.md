@@ -1,17 +1,17 @@
 ## React - Manipulando dados com Axios
 
-Aprender a realizar chamadas a API's é algo crucial, pois a maioria das aplicações irão se comunicar com um backend para mostrar informações, realizar autenticações, e umas das formas mais usadas pra isso é o [Axios](https://axios-http.com/ptbr/docs/intro).
+Aprender a realizar chamadas a API's é algo crucial, pois a maioria das aplicações irão se comunicar com um backend para mostrar informações, realizar autenticações, validações, etc. Uma das formas mais usadas pra isso é o [Axios](https://axios-http.com/ptbr/docs/intro).
 
 ### O que é Axios?
 
-Axios é uma biblioteca cliente HTTP baseado **promises** para nodejs e browser, se utilizando de API como **XMLHttpRequest** e **http**. 
+Axios é uma biblioteca cliente HTTP baseado **promises** para nodejs e browser, se utilizando de API como **XMLHttpRequest** do browser e **http** do nodejs. 
 
 Entre suas vantagens estão:
 - Facilidade na manipulação de JSON ( menos código ).
 - Funções que correspondem aos métodos HTTP ( get, post, delete...).
 - Pode ser usando tanto no cliente como no servidor.
 
-### Configuração
+### Instalação
 
 Se você tem um projeto React existente, você só precisa instalar o Axios com npm (ou qualquer outro gerenciador de pacotes):
 
@@ -49,9 +49,9 @@ export function Post() {
   );
 };
 ```
-Utilizamos os hooks **useState** para armazenar o retorno da API e o **useEffect** usamos para realizar a chamada assim que o UI for montada, utilizamos então o método **GET** da importação do **Axios** no inicio do arquivo para realizar a chamada a API e retornar um post que é armazenado na variável **Post** no método **then** que possui acesso a resposta da API.
+Utilizamos os hooks **useState** para armazenar o retorno da API e o **useEffect** usamos para realizar a chamada assim que o UI for montada, utilizamos então o método **GET** da importação do **Axios** no inicio do arquivo para realizar a chamada a API e retornar um post que é armazenado na variável **post** através do **setPost** no método **then** que possui acesso a resposta da API.
 
-O **response** retornar um objeto que possui a propriedade **data** que nesse caso é um objeto com **id**, **title**, **body** e **userId**, utilizamos então o **title** e **body** do post para montar o post em tela.
+O **response** retorna um objeto que possui a propriedade **data** que nesse caso é um objeto com **id**, **title**, **body** e **userId**, utilizamos então o **title** e **body** do post para montar o post em tela.
 
 ### Realizando solicitações POST
 
@@ -96,9 +96,9 @@ function handleCreatePost() {
   );
 ```
 
-O axios como dito anteriormente possui funções com o nome dos métodos http, nesse caso utilizamos a função `post()`, para realizar a criação de um novo post adicionamos um botão e no evento **onClick** é chamada a função **handleCreatePost** que faz a requisição de criação do post.
+O axios como dito anteriormente possui funções com o nome dos métodos http, nesse caso utilizamos a função `post()`, para realizar a criação de um novo post, adicionamos um botão e no evento **onClick** é chamada a função **handleCreatePost** que faz a requisição de criação do post.
 
-Na função `post()`passamos o endpoint **/posts** e como segundo argumento é passado um objeto que contém o **title** e o **body** do post, o retorno da API ( `.then()`) é o post criado que armazenamos no estado **posts**
+Na função `post()` do axios passamos o endpoint **/posts** e como segundo argumento é passado um objeto que contém o **title** e o **body** do post, o retorno da API ( `.then()`) é o post criado que armazenamos no estado **posts**
 
 > Apenas para finalidade estética adicionei um h1 e hr para melhor a apresentação em tela.
 
@@ -249,11 +249,11 @@ Para que seja possível usar **async await** é necessário criar uma função n
   - Apenas após o retorno do **await** a próxima linha será executada.
   - O **try e catch** nesse caso é usado para tratar erros na requisição.
 
-O Async Await deixa o código limpo e pode ser usado com **axios** com facilidade.
+> O Async Await deixa o código limpo e pode ser usado com **axios** com facilidade.
 
 ### Criando o Custom Hook useAxios
 
-Custom hooks são utilizado para retirar lógicas que podem ser reutilizados em componentes diferentes, aqui o intuito é apenas mostrar que podemos deixar o componente **Post** mais limpo e deixar toda lógica de requisição no hook **useAxios**, nele lidamos também com outro estado o **loading** que serve para lidar com um elemento de carregamento na tela.
+Custom hooks são utilizado para retirar lógicas que podem ser reutilizados em componentes diferentes, aqui o intuito é apenas mostrar que podemos deixar o componente **Post** mais limpo e deixar toda lógica de requisição no hook **useAxios**, nele lidamos também com outro estados, o **loading** que serve para lidar com um elemento de carregamento na tela.
 
 *Exemplo de código para useAxios*
 
@@ -276,6 +276,7 @@ export const useAxios = () => {
       try {
         setLoading(true);
         setError(null);
+
         const response = await api.get(`/1`);
 
         setData(response.data);
@@ -292,8 +293,8 @@ export const useAxios = () => {
   function handleCreatePost() {
     setLoading(true);
     setError(null);
-    api
-      .post("/", {
+
+    api.post("/", {
         title: "Titulo do Post",
         body: "Esse é um novo post e foi criado em um exemplo de uso do axios, não é incrível?",
       })
@@ -302,14 +303,13 @@ export const useAxios = () => {
       })
       .catch((error) => setError("error" + error));
     setLoading(false);
-    console.log(loading);
   }
 
   function handleUpdatePost() {
     setLoading(true);
     setError(null);
-    api
-      .put(`/1`, {
+
+    api.put(`/1`, {
         title: "Novo Titulo do Post",
         body: "Esse é um novo post e foi atualizado em um exemplo de uso do axios, não é incrível?",
       })
@@ -323,8 +323,8 @@ export const useAxios = () => {
   function handleDeletePost() {
     setLoading(true);
     setError(null);
-    api
-      .delete(`/1`)
+
+    api.delete(`/1`)
       .then(() => {
         alert("Post deleted!");
         setData(null);
@@ -336,8 +336,8 @@ export const useAxios = () => {
   function handleError() {
     setLoading(true);
     setError(null);
-    api
-      .get(`/asdf`)
+
+    api.get(`/asdf`)
       .then(({ data }) => setData(data))
       .catch((err) => {
         setData(null);
@@ -532,9 +532,12 @@ export function PostUseAxios() {
 Basicamente para utilizar o **useAxios** apenas o importamos no arquivo e utilizamos chamando a função `useAxios` desestruturando seu retorno que é um objeto contendo os dados e funções sobre o post.
 
 *E esse é o resultado em tela*
+> O CSS foi omitido pois não era o foco do post.
+
 ![paágina co posts](https://ik.imagekit.io/Nscmnt/CPT2205161812-630x350_MwV9uxzvV.gif?ik-sdk-version=javascript-1.4.3&updatedAt=1652735776969)
 
 Uffa !! o artigo ficou um pouco grande porém é o essencial sobre manipulação/requisições que precisamos ter para trabalhar com **axios**.
+
 
 ---
 

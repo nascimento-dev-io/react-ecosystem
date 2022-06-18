@@ -76,6 +76,7 @@ Apartir de agora você pode criar um novo script que irá monitorar as alteraç�
 Os script podem ser usados com sintaxes diferentes dependendo de como você o chama usando API ou CLI.
 
 ```JSON
+...
 "scripts": {
     "dev": "webpack serve --open",
     "build": "webpack-dev-server --mode production"
@@ -102,6 +103,60 @@ Enquanto os loaders são usados ​​para transformar certos tipos de módulos,
 
 Para usar um plugin, você precisa, require() - importa-lo e adicioná-lo ao array de plugins. A maioria dos plug-ins é personalizável por meio de opções. Já que você pode usar um plugin várias vezes em uma configuração para diferentes propósitos, você precisa criar uma instância dele chamando-o com o operador new.
 
+*Exemplo de arquivo de configuração*
+
+```js
+// O módulo path serve para manipular caminhos de arquivos com isso pode 'corrigir' possíveis erros de caminho de diretórios em s.o diferentes.
+const path = require("path");
+
+//Importando o Plugin...
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  // ponto de entrada para o webpack criar o gráfico de dependências...
+  entry: path.resolve(__dirname, "src", "index.js"),
+
+  // saida após o processamento dos módulos...
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "public"),
+  },
+
+  // defini o mode final de saida, no modo development a saida não é minificada, além de melhorias para debug...
+
+  mode: "development",
+
+  // auxilia no debug mostrando o ponto exato do erro...
+
+  devtool: "inline-source-map",
+
+  // servidor de desenvolvimento com hot reload...
+
+  devServer: {
+    static: path.join(__dirname, "./public"),
+  },
+
+  // adicionando as regras e loaders correspondentes...
+
+  module: {
+    rules: [
+      {
+        test: /\.js(x)?$/,
+        exclude: /node_modules/,
+        use: { loader: "babel-loader" },
+      },
+    ],
+  },
+
+  // adicionando o plugin htmlwebpackplugin...
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
+  ],
+};
+```
 ...o weback é muito extensível e existem inúmeras configurações tanto para o server quanto para o webpack em geral, você pode checar a documentação [aqui](https://webpack.js.org/guides/getting-started/).
 
-Exemplo de arquivo de configuração do webpack [aqui]()
+> Acesse o arquivo de configuração do webpack [aqui](./webpack.config.js)

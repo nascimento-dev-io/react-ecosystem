@@ -9,7 +9,7 @@ $ yarn add -D prettier
 
 ```
 
-O mais comun é utilizar o prettier em conjunto com um linter como o ESLinter para isso é necessário instalar o `eslint-config-prettier`.
+O mais comum é utilizar o prettier em conjunto com um linter como o ESLinter para isso é necessário instalar o `eslint-config-prettier`.
 
 ### Arquivo de configuração
 

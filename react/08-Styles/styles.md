@@ -1,13 +1,13 @@
 ## React - Estilização
 
-Estilização em react pode ser feita de algumas formas, cada uma com suas vantagens e desvantagens, vamos introduzir o assunto nível iniciante e entender como é realizado essa estilização.
+Estilização em react pode ser feita de algumas formas, cada uma possui suas vantagens e desvantagens, no artigo vamos abordar as formas básicas sem uso de bibliotecas.
 
 > O código do exemplo é obter o resultado abaixo:
 
 ![paragraph](https://ik.imagekit.io/Nscmnt/article_sQGB00Z1p.png?ik-sdk-version=javascript-1.4.3&updatedAt=1652560827747)
 
 ### CSS Puro
-É possível utilizar com arquivos `.css` de forma global ou em componentes com estilizações específicas, isso pode melhorar a manutenção porém podemos ter problemas de especificidade do css em aplicações maiores.
+É possível estilizar com arquivos `.css` de forma global ou em componentes com estilizações específicas, isso pode melhorar a manutenção porém podemos ter problemas de especificidade do css em aplicações maiores.
 
 *Exemplo simples do uso de CSS Puro*
 
@@ -158,9 +158,9 @@ export const StylesExample = () => {
   );
 };
 ```
-É possível criar um objeto fora do componente e inserir no **style** semelhante ao css modules, porém essa é a forma menos usada e aqui esta apenas como exemplo das possibilidades.
+É possível criar um objeto fora do componente e inserir no **style** semelhante ao css modules, porém essa é a forma menos usada e aqui esta apenas como mais uma forma de uso.
 
-Geralmente em React usamos outras formas de estilização quando estamos falando de grandes aplicações e os mais comum são o conceito de CSS in JS com [styled components](https://www.styled-components.com/) e bibliotecas de estilização como [tailwindCSS](https://tailwindcss.com/) entre outras.
+Geralmente em React usamos outras formas de estilização quando estamos falando de grandes aplicações e os mais comum são o conceito de CSS in JS como [styled components](https://www.styled-components.com/) e bibliotecas de estilização como [tailwindCSS](https://tailwindcss.com/) entre outras.
 
 ---
 

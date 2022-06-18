@@ -31,13 +31,13 @@ import { StylesExample } from "./examples/Styles/StylesExample";
 import { PostUseAxios } from "./examples/Axios/PostUseAxios";
 
 // Performance
-import { ListItems } from "./examples/Peformance";
+import { ListItems } from "./examples/Performance";
 
 const root = createRoot(document.querySelector("#root"));
 
 // Use o componente que queira visualizar o exemplos sendo executado
 root.render(
   <ContextProvider>
-    <UseContextExample />
+    <PostUseAxios />
   </ContextProvider>
 );

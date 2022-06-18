@@ -18,11 +18,11 @@ const jn = new UserAccount("Jorge Nascimento", 32);
 console.log(jn);
 jn.logDetails();
 
-// extendendo classes e modificadores.
+// estendendo classes e modificadores.
 
-// readonly - acessivel apenas para leitura fora da classe.
-// private - acessivel apenas dentro da classe.
-// protected - acessivel dentro da classe e subclasses apenas.
+// readonly - acessível apenas para leitura fora da classe.
+// private - acessível apenas dentro da classe.
+// protected - acessível dentro da classe e subclasses apenas.
 // public - default - pode ser acessado e alterado fora da classe.
 
 // getters e setters - métodos para acesso e alteração em classes.

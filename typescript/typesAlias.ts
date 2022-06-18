@@ -41,7 +41,7 @@ const char: CharInfo = {
   level: 125,
 };
 
-// Criando um type com a interserção dos tipos anteriores.
+// Criando um type com a intersecção dos tipos anteriores.
 type PlayerInfo = AccountInfo & CharInfo;
 
 const player: PlayerInfo = {

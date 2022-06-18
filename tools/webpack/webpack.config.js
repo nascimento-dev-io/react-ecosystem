@@ -1,14 +1,14 @@
-// O modúlo path serve para manipular caminhos de arquivos com isso pode 'corrigir' possiveis erros de caminho de diretórios em s.o diferentes.
+// O módulo path serve para manipular caminhos de arquivos com isso pode 'corrigir' possíveis erros de caminho de diretórios em s.o diferentes.
 const path = require("path");
 
 //Importando o Plugin...
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  // ponto de entrada para o webpack criar o gráfico de depedências...
+  // ponto de entrada para o webpack criar o gráfico de dependências...
   entry: path.resolve(__dirname, "src", "index.js"),
 
-  // saida após o processamento dos modulos...
+  // saida após o processamento dos módulos...
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "public"),
@@ -28,7 +28,7 @@ module.exports = {
     static: path.join(__dirname, "./public"),
   },
 
-  // adicionando as regras e loaders conrrespondentes...
+  // adicionando as regras e loaders correspondentes...
 
   module: {
     rules: [
