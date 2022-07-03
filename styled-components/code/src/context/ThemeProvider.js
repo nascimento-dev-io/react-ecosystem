@@ -1,9 +1,9 @@
 import { useMemo, useEffect, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider as StyledThemeProvider} from 'styled-components';
 
 import themes from '../styles/themes';
 
-export const StyledThemeProvider = ({ children }) => {
+export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
     const themeStored = localStorage.getItem('theme');
 
@@ -28,8 +28,8 @@ export const StyledThemeProvider = ({ children }) => {
   }, [theme]);
 
   return (
-  <ThemeProvider theme={{selectedTheme: theme, currentTheme, handleToggleTheme}}>
+  <StyledThemeProvider theme={{selectedTheme: theme, currentTheme, handleToggleTheme}}>
     {children}
-  </ThemeProvider>
+  </StyledThemeProvider>
   )
 }

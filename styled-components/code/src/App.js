@@ -1,17 +1,17 @@
 import  Header from './components/Header';
 import  Layout from './components/Layout';
 
-import { StyledThemeProvider } from './context/ThemeProvider';
+import { ThemeProvider } from './context/ThemeProvider';
 
 import { GlobalStyle } from './styles/global';
 
 function App() {
   return (
-    <StyledThemeProvider >
+    <ThemeProvider >
       <GlobalStyle/>
       <Header />
       <Layout />
-    </StyledThemeProvider>
+    </ThemeProvider>
   );
 }
 

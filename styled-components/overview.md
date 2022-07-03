@@ -1,6 +1,6 @@
 ## Styled Components
 
-Styled Components é um **lib** que utiliza JavaScript para criar componentes estilizados em React ( CSS in JS ).
+Styled Components é um **lib** utilizada no ecossistema React que usa o conceito (CSS in JS ), ou seja, o CSS é gerado a partir de arquivos javascript, o styled retorna componentes React estilizados.
 
 Algumas vantagens:
 - Styled-components gera nomes de classe exclusivos para seus estilos ( estilos escopados )
@@ -11,16 +11,17 @@ Algumas vantagens:
 > Você obtém todos esses benefícios enquanto ainda escreve o CSS que conhece.
 
 ### Instalação
+Após iniciar um projeto com um template como o [CRA](https://create-react-app.dev/), vamos instalar o styled components.
 
 ```bash
-# with npm
+# com npm
 npm install --save styled-components
 
-# with yarn
+# com yarn
 yarn add styled-components
 ```
 
-Styled utiliza `tagged template literals` para criação dos estilos, o retorno da função é a criação de componente React estilizado.
+Styled utiliza [`tagged template literals`](https://www.alura.com.br/artigos/tagged-template-literals) que permite interpolação de código JS na criação dos estilos, o retorno da função `styled.tag` é a criação de um componente React estilizado.
 
 Exemplo de criação de componente de nome **Title** que renderiza uma tag **h1** com alguns estilos.
 ```js
@@ -86,6 +87,8 @@ const TomatoButton = styled(Button)`
 O styled disponibiliza a função **keyframes** para criação de animações, essa gera uma instância única que você pode usar em todo o seu aplicativo.
 
 ```js
+import { keyframes, css } from 'styled-components';
+
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -125,8 +128,23 @@ O styled components disponibiliza um componente `ThemeProvider` que utiliza a co
 O **Provider** possui um atributo **theme** onde é definido o tema que sera disponibilizado para os componentes children.
 
 ```js
+import { ThemeProvider } from 'styled-components';
 
-// Button - estilização
+// Componente App
+const App = () => {
+  const theme = {
+    bg: '#333333'
+    fg: '#f5f5f5'
+  }
+
+  <ThemeProvider theme={theme}>     
+    <Button>Theme</Button> 
+  </ThemeProvider>
+}
+
+...
+
+// Button - estilizado com acesso a prop theme do provider
 const Button = styled.button`
   color: ${props => props.theme.fg};
   border: 2px solid ${props => props.theme.fg};
@@ -135,22 +153,12 @@ const Button = styled.button`
   font-size: 1em;
   margin: 1em;
 `;
-
-// Componente App
-const App = () => {
-  const theme = {
-    bg: '#333'
-    fg: '#f5f5f5'
-  }
-
-  <ThemeProvider theme={theme}>     
-    <Button>Theme</Button> 
-  </ThemeProvider>
-}
 ```
 Temos então acesso como visto antes, via props, nesse caso ao **theme** definido no **ThemeProvider**, com isso podemos criar arquivos diferentes para definir temas diferentes como **dark** e **light** e alternar o valor do atributo **theme** criando um toggleTheme para a aplicação, entre outras possibilidades.
 
-> Veja [aqui]()  um exemplo de **toggle theme** com a criação de um novo contexto para isolar lógicas pertinentes.
+O hook **useTheme** concede acesso ao contexto do **ThemeProvider**, ou seja, tudo que é disponibilizado no atributo **theme** também é disponibilizado para acesso via hook.
+
+> Veja [aqui](https://github.com/nascimento-dev-io/react-ecosystem/tree/main/styled-components)  um exemplo de **toggle theme** com a criação de um novo contexto para isolar lógicas pertinentes ao tema da aplicação, incluindo usando o localStorage para armazena o tema escolhido.
 
 
 **Obrigado por ler!**
